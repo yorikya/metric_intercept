@@ -14,16 +14,16 @@ const (
 )
 
 func main() {
-	fmt.Println("hello world")
-
+	host := "localhost:2001"
 	err := editHostFile()
 	fmt.Println("the error:", err)
 
-	l, err := net.Listen("tcp", "localhost:2001")
+	l, err := net.Listen("tcp", host)
 	if err != nil {
 		fmt.Println("Error listening:", err.Error())
 		os.Exit(1)
 	}
+	fmt.Println("start tcp server:", host)
 	// Close the listener when the application closes.
 	defer l.Close()
 
