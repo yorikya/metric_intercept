@@ -14,7 +14,7 @@ const (
 )
 
 func main() {
-	host := "localhost:2001"
+	host := "localhost:9092"
 	err := editHostFile()
 	fmt.Println("the error:", err)
 

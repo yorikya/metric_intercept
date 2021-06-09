@@ -10,9 +10,8 @@ const (
 	UDP = "udp"
 )
 
-// func main() {
-func _main() {
-	address, _ := net.ResolveUDPAddr(UDP, ":8125")
+func main() {
+	address, _ := net.ResolveUDPAddr(UDP, ":8127")
 	listener, err := net.ListenUDP(UDP, address)
 	if err != nil {
 		log.Fatalf("ListenAndServe: %s", err.Error())

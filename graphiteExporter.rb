@@ -31,12 +31,25 @@ end
 
 
 # Graphite connection
-graphiteURL = "localhost"
-graphitePort = 2001
+graphiteURL = "carbonrelay-20001-001-test"
+graphitePort = 2009
+$graphiteMetricPrefix = "yuri.tests"
 
-graphite = Graphite.new(graphiteURL, graphitePort, "yuri.tests")
-graphite.report("hello.world", 10)
-puts "after sned metric!!!!!!!!"
+graphite = Graphite.new(graphiteURL, graphitePort, $graphiteMetricPrefix)
 
+$i = 0
+$num = 100000
+$m = "hello.world"
+$mtag = "hello.world;tagname=test"
 
+while $i < $num  do
+  
+  graphite.report($m, $i)
+  puts "send metrics: #$graphiteMetricPrefix.#$m, value: #$i"
+  $i +=1
+  sleep 1
+end
+
+# graphite.report("hello.world", 10)
+# puts "after sned metric!!!!!!!!"
 

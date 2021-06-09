@@ -20,14 +20,14 @@ git clone https://github.com/yorikya/metric_intercept
 ## Usage
 ### TCP Server Graphite
 ```
-go run tcpserver.go
+go run tcp/tcpserver.go
 
 out=> Message app.my.metric.gauge 7 1580849242
 ```
 
 ### UDP Server Statsd
 ```
-go run udpserver.go
+go run udp/udpserver.go
 
 out=> addr:10.10.1.1, get message: app.my.metric.counter:1|c
 
